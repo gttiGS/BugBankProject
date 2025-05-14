@@ -1,71 +1,59 @@
-![BugBank Logo](https://bugbank.netlify.app/_ipx/w_256,q_75/%2F_next%2Fstatic%2Fmedia%2Fbugbank.ede6fc83.png?url=%2F_next%2Fstatic%2Fmedia%2Fbugbank.ede6fc83.png&w=256&q=75)
+# 🧪 Projeto de Testes Automatizados - BugBank
 
-# Projeto de Testes Automatizados - BugBank
+Este repositório contém o projeto de testes automatizados da aplicação **BugBank**, um sistema de banco digital fictício usado para fins de estudo e prática de QA.
 
-Este repositório contém os testes automatizados desenvolvidos para a aplicação **BugBank**, uma plataforma de banco digital com funcionalidades de cadastro, login, transferência, extrato e outras operações bancárias.
+## 📁 Estrutura do Projeto
 
-## Tecnologias Utilizadas
-- Java
-- Selenium WebDriver
-- JUnit 5
-- Maven
+```
+📁 src
+├── 📁 main
+│   └── 📁 java
+│       ├── 📁 pages         # Page Objects (representação das telas)
+│       └── 📁 core          # Configurações e utilitários
+├── 📁 test
+│   └── 📁 java
+│       └── 📁 tests         # Casos de teste automatizados
+📁 documentacao_qa           # 📚 Documentação de QA do projeto
+├── requisitos_bugbank.md
+├── plano_testes_bugbank.md
+├── cenarios_testes_bugbank.md
+├── historias.feature (opcional)
+📄 README.md                 # Este arquivo
+📄 pom.xml                  # Gerenciador de dependências Maven
+```
 
-## Casos de Teste Automatizados
+## 🚀 Como Executar os Testes
 
-### 1. Login
-- [x] Valida obrigatoriedade dos campos Email e Senha
-- [x] Valida mensagem "Usuário e senha precisam ser preenchidos"
-- [x] Nega acesso com credenciais inválidas
-- [x] Redireciona para home com credenciais válidas
-
-### 2. Cadastro
-- [x] Campos obrigatórios: Nome, Email, Senha, Confirmação de senha
-- [x] Valida mensagens para campos obrigatórios vazios
-- [x] Valida igualdade entre senha e confirmação
-- [x] Cria conta com saldo (R$ 1.000,00)
-- [x] Cria conta sem saldo (R$ 0,00)
-- [x] Exibe número da conta após cadastro bem-sucedido
-
-### 3. Transferência
-- [x] Aceita apenas contas válidas
-- [x] Permite transferência somente com saldo suficiente
-- [x] Mensagem "Conta inválida ou inexistente" para contas inválidas
-- [x] Campos de conta aceitam apenas números
-- [x] Descrição obrigatória
-- [x] Valor não pode ser ≤ 0
-- [x] Debita valor e exibe "Transferência realizada com sucesso"
-- [x] Redireciona para extrato após transferência
-
-### 4. Extrato
-- [x] Exibe saldo atual
-- [x] Lista transações com data, tipo e valor
-- [x] Valor de saída em vermelho e com sinal negativo
-- [x] Valor de entrada em verde
-- [x] Transações sem comentário exibem "-"
-
-### 5. Funcionalidades em Desenvolvimento (Não testadas ainda)
-- Pagamento
-- Saque
-
-## Como Executar os Testes
-
-1. Clone este repositório:
+1. Clone o repositório:
 ```bash
-git clone https://github.com/gttiGS/BugBankProject.git
+git clone https://github.com/gttiGS/BugBankProject
 cd BugBankProject
 ```
 
-2. Execute os testes via terminal:
+2. Execute os testes:
 ```bash
 mvn test
 ```
 
-## Contribuição
-Pull requests são bem-vindos! Para melhorias ou sugestões, abra uma issue.
+> Certifique-se de ter o Java, Maven e um WebDriver configurado no seu ambiente.
 
-## Autor
+---
+
+## 📚 Documentação de QA
+
+A documentação completa de QA pode ser encontrada na pasta [`documentacao_qa`](./documentacao_qa):
+
+- ✅ [Requisitos Funcionais](./documentacao_qa/requisitos_bugbank.md)
+- 🧪 [Plano de Testes](./documentacao_qa/plano_testes_bugbank.md)
+- 📑 [Cenários e Casos de Teste](./documentacao_qa/cenarios_testes_bugbank.md)
+- 📘 Histórias e Features (em breve)
+
+---
+
+## 👨‍💻 Autor
+
 Gustavo Supranzetti – [@gttiGS](https://github.com/gttiGS)
 
 ---
 
-Este projeto foi desenvolvido para fins de aprendizado e treinamento em testes automatizados utilizando Selenium WebDriver e JUnit.
+Este projeto é voltado para aprendizado e prática em automação de testes com **Java + Selenium WebDriver + JUnit 5**.
