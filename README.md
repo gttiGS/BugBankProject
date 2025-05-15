@@ -41,9 +41,9 @@ mvn test
 
 A documentação completa de QA pode ser encontrada na pasta [`documentacao_qa`](./documentacao_qa):
 
-- ✅ [Requisitos Funcionais](./documentacao_qa/requisitos_bugbank.md)
-- 🧪 [Plano de Testes](./documentacao_qa/plano_testes_bugbank.md)
-- 📑 [Histórias, Cenários e Casos de Teste](./documentacao_qa/cenarios_testes_bugbank.md)
+- ✅ [Requisitos Funcionais](https://github.com/gttiGS/BugBankProject/blob/main/documentacao_qa/1-Requisitos_Funcionais.md)
+- 🧪 [Plano de Testes](https://github.com/gttiGS/BugBankProject/blob/main/documentacao_qa/2-Plano_de_Testes.md)
+- 📑 [Histórias, Cenários e Casos de Teste](https://github.com/gttiGS/BugBankProject/blob/main/documentacao_qa/3-Hist%C3%B3rias_e_Cen%C3%A1rios.md)
 
 ---
 
