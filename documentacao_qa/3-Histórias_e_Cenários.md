@@ -8,8 +8,8 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ## 📝 História 01 - Cadastro
 
 ## 🧾 Descrição da História
-**Como** um novo usuário da plataforma BugBank
-**Quero** me cadastrar informando meus dados corretamente
+**Como** um novo usuário da plataforma BugBank 
+**Quero** me cadastrar informando meus dados corretamente 
 **Para** que eu possa criar uma conta bancária com ou sem saldo inicial e acessar os recursos da aplicação
 
 ## 🎯 Critérios de Aceitação
@@ -22,47 +22,47 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 - Após cadastro bem-sucedido, deve exibir o número da conta criada
 
 ### Cenário 1: Cadastro com todos os campos vazios
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** tento cadastrar sem preencher nada  
 **Então** vejo mensagens de erro para todos os campos obrigatórios
 
 ### Cenário 2: Campo nome vazio
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** deixo o nome vazio  
 **Então** vejo a mensagem: "Nome não pode ser vazio"
 
 ### Cenário 3: Campo email vazio
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** deixo o email vazio  
 **Então** vejo a mensagem: "Email não pode ser vazio"
 
 ### Cenário 4: Campo senha vazio
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** deixo o campo senha vazio  
 **Então** vejo a mensagem: "Senha não pode ser vazio"
 
 ### Cenário 5: Campo confirmação de senha vazio
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** deixo o campo de confirmação de senha vazio  
 **Então** vejo a mensagem: "Confirmar senha não pode ser vazio"
 
 ### Cenário 6: Senha e confirmação diferentes
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** preencho senha e confirmação diferentes  
 **Então** vejo uma mensagem de erro informando que as senhas devem ser iguais
 
 ### Cenário 7: Criar conta com saldo
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** marco a opção "Criar conta com saldo" e finalizo o cadastro  
 **Então** a conta deve ser criada com saldo de R$ 1.000,00
 
 ### Cenário 8: Criar conta sem saldo
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** deixo desmarcada a opção "Criar conta com saldo"  
 **Então** a conta deve ser criada com saldo de R$ 0,00
 
 ### Cenário 9: Cadastro bem-sucedido
-**Dado** que estou na tela de cadastro
+**Dado** que estou na tela de cadastro 
 **Quando** preencho todos os dados corretamente  
 **Então** a conta é criada com sucesso e exibe o número da conta
 
