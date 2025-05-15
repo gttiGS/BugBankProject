@@ -17,7 +17,6 @@ Este repositório contém o projeto de testes automatizados da aplicação **Bug
 ├── 1-Requisitos_Funcionais.md
 ├── 2-Plano_de_Testes.md
 ├── 3-Histórias_e_Cenários.md
-├── historias.feature (opcional)
 📄 README.md                 # Este arquivo
 📄 pom.xml                  # Gerenciador de dependências Maven
 ```
