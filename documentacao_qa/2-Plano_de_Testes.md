@@ -93,7 +93,6 @@ Os casos de teste estão baseados nos requisitos funcionais documentados e conte
 | Configuração do ambiente    | 0,5 dia        |
 | Implementação dos testes    | 2 dias         |
 | Execução e documentação     | 1 dia          |
-|-----------------------------|----------------|
 
 ---
 
