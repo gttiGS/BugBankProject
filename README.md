@@ -1,6 +1,6 @@
 ![BugBank Logo](https://bugbank.netlify.app/_ipx/w_256,q_75/%2F_next%2Fstatic%2Fmedia%2Fbugbank.ede6fc83.png?url=%2F_next%2Fstatic%2Fmedia%2Fbugbank.ede6fc83.png&w=256&q=75)
 
-# 🧪 Projeto de Testes Automatizados - BugBank
+# Projeto de Testes Automatizados - BugBank
 
 Este repositório contém o projeto de testes automatizados da aplicação **BugBank**, um sistema de banco digital fictício usado para fins de estudo e prática de QA.
 
