@@ -6,17 +6,15 @@ Este repositório contém o projeto de testes automatizados da aplicação **Bug
 
 ```
 📁 src
-├── 📁 main
+├── 📁 test
 │   └── 📁 java
 │       ├── 📁 pages         # Page Objects (representação das telas)
 │       └── 📁 core          # Configurações e utilitários
-├── 📁 test
-│   └── 📁 java
 │       └── 📁 tests         # Casos de teste automatizados
 📁 documentacao_qa           # 📚 Documentação de QA do projeto
-├── requisitos_bugbank.md
-├── plano_testes_bugbank.md
-├── cenarios_testes_bugbank.md
+├── 1-Requisitos_Funcionais.md
+├── 2-Plano_de_Testes.md
+├── 3-Histórias_e_Cenários.md
 ├── historias.feature (opcional)
 📄 README.md                 # Este arquivo
 📄 pom.xml                  # Gerenciador de dependências Maven
@@ -45,8 +43,7 @@ A documentação completa de QA pode ser encontrada na pasta [`documentacao_qa`]
 
 - ✅ [Requisitos Funcionais](./documentacao_qa/requisitos_bugbank.md)
 - 🧪 [Plano de Testes](./documentacao_qa/plano_testes_bugbank.md)
-- 📑 [Cenários e Casos de Teste](./documentacao_qa/cenarios_testes_bugbank.md)
-- 📘 Histórias e Features (em breve)
+- 📑 [Histórias, Cenários e Casos de Teste](./documentacao_qa/cenarios_testes_bugbank.md)
 
 ---
 

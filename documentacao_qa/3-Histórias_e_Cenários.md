@@ -7,6 +7,20 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 
 ## 📝 História 01 - Cadastro
 
+## 🧾 Descrição da História
+**Como** um novo usuário da plataforma BugBank
+**Quero** me cadastrar informando meus dados corretamente
+**Para** que eu possa criar uma conta bancária com ou sem saldo inicial e acessar os recursos da aplicação
+
+## 🎯 Critérios de Aceitação
+- Todos os campos obrigatórios devem ser validados (nome, email, senha e confirmação de senha)
+- Deve exibir mensagens de erro específicas para cada campo não preenchido
+- Senha e confirmação de senha devem ser iguais
+- O usuário deve poder escolher se a conta será criada com saldo inicial ou não
+- Ao marcar “Criar conta com saldo”, o saldo inicial deve ser de R$ 1.000,00
+- Ao deixar desmarcada a opção, a conta deve iniciar com saldo de R$ 0,00
+- Após cadastro bem-sucedido, deve exibir o número da conta criada
+
 ### Cenário 1: Cadastro com todos os campos vazios
 **Dado** que estou na tela de cadastro
 **Quando** tento cadastrar sem preencher nada  
@@ -56,6 +70,18 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 
 ## 🔐 História 02 - Login
 
+## 🧾 Descrição da História
+**Como** um usuário da plataforma BugBank
+**Quero** acessar minha conta por meio de email e senha válidos
+**Para** que eu possa visualizar meu saldo, realizar transferências e utilizar os recursos da aplicação com segurança
+
+## 🎯 Critérios de aceitação
+
+- O sistema deve impedir o acesso com campos obrigatórios vazios
+- O sistema deve validar corretamente credenciais inválidas
+- O login bem-sucedido deve redirecionar o usuário para a home
+- O botão de logout deve encerrar a sessão e redirecionar para a tela de login
+
 ### Cenário 1: Login com campos vazios
 **Dado** que estou na tela de login  
 **Quando** clico no botão de login sem preencher email e senha  
@@ -92,6 +118,22 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 
 ## 💸 História 03 - Transferência
 
+## 🧾 Descrição da História
+**Como** um usuário autenticado da plataforma BugBank
+**Quero** realizar transferências para outras contas válidas
+**Para** que eu possa enviar valores com segurança e acompanhar o saldo da minha conta
+
+## 🎯 Critérios de Aceitação
+- Só é permitida transferência para contas válidas
+- Campos de número e dígito da conta devem aceitar apenas números
+- O campo descrição é obrigatório e deve ser validado
+- O valor da transferência não pode ser igual ou menor que zero
+- Caso o valor exceda o saldo da conta, a transferência deve ser negada com a mensagem apropriada
+- Quando a transferência for bem-sucedida:
+- O valor deve ser debitado da conta de origem
+    - Deve ser exibida a mensagem: "Transferência realizada com sucesso"
+    - O usuário deve ser redirecionado ao extrato
+
 ### Cenário 1: Transferência para conta inválida
 **Dado** que estou autenticado
 **Quando** tento transferir para uma conta que não existe  
@@ -125,6 +167,23 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ---
 
 ## 📄 História 04 - Extrato
+
+## 🧾 Descrição da História
+**Como** um usuário autenticado da plataforma BugBank
+**Quero** visualizar o saldo e o histórico de transações da minha conta
+**Para** que eu possa acompanhar minha movimentação financeira com clareza e transparência
+
+## 🎯 Critérios de Aceitação
+- O saldo da conta deve ser exibido corretamente
+- Se a conta foi criada com saldo, deve exibir R$ 1.000,00
+- Se a conta foi criada sem saldo, deve exibir R$ 0,00
+- Todas as transações realizadas devem ser exibidas no extrato
+- Mostrar data da transação
+- Indicar o tipo da transação (Abertura de conta, Transferência enviada ou recebida)
+- Mostrar o comentário/descrição, ou o símbolo “-” caso não informado
+- Formatação dos valores:
+    - Valores de saída devem aparecer em vermelho e com sinal negativo (-)
+    - Valores de entrada devem aparecer em verde
 
 ### Cenário 1: Visualização de saldo - Conta criada com saldo
 **Dado** que estou autenticado
