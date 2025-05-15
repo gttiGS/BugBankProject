@@ -71,8 +71,8 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ## 🔐 História 02 - Login
 
 ## 🧾 Descrição da História
-**Como** um usuário da plataforma BugBank
-**Quero** acessar minha conta por meio de email e senha válidos
+**Como** um usuário da plataforma BugBank  
+**Quero** acessar minha conta por meio de email e senha válidos  
 **Para** que eu possa visualizar meu saldo, realizar transferências e utilizar os recursos da aplicação com segurança
 
 ## 🎯 Critérios de aceitação
@@ -119,8 +119,8 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ## 💸 História 03 - Transferência
 
 ## 🧾 Descrição da História
-**Como** um usuário autenticado da plataforma BugBank
-**Quero** realizar transferências para outras contas válidas
+**Como** um usuário autenticado da plataforma BugBank  
+**Quero** realizar transferências para outras contas válidas  
 **Para** que eu possa enviar valores com segurança e acompanhar o saldo da minha conta
 
 ## 🎯 Critérios de Aceitação
@@ -135,32 +135,32 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
     - O usuário deve ser redirecionado ao extrato
 
 ### Cenário 1: Transferência para conta inválida
-**Dado** que estou autenticado
-**Quando** tento transferir para uma conta que não existe  
+**Dado** que estou autenticado  
+**Quando** tento transferir para uma conta que não existe    
 **Então** vejo a mensagem: "Conta inválida ou inexistente"
 
 ### Cenário 2: Campos da conta com letras
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** tento inserir letras nos campos de número e dígito da conta  
 **Então** vejo que apenas números são aceitos
 
 ### Cenário 3: Campo descrição vazio
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** tento transferir sem preencher a descrição  
 **Então** vejo que descrição é um campo de preenchimento obrigatório
 
 ### Cenário 4: Valor igual ou menor que zero
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** tento transferir R$ 0,00 ou valor negativo  
 **Então** vejo a seguinte mensagem de erro "Valor da transferência não pode ser 0 ou negativo"
 
 ### Cenário 5: Saldo insuficiente
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** tento transferir mais do que tenho de saldo  
 **Então** a transferência é negada e é exibida a seguinte mensagem de erro "Você não tem saldo suficiente para essa transação"
 
 ### Cenário 6: Transferência com sucesso
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** preencho todos os dados corretamente e tenho saldo suficiente  
 **Então** o valor é debitado da minha conta, vejo a mensagem de sucesso "Transferência realizada com sucesso" e sou redirecionado ao extrato
 
@@ -169,8 +169,8 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ## 📄 História 04 - Extrato
 
 ## 🧾 Descrição da História
-**Como** um usuário autenticado da plataforma BugBank
-**Quero** visualizar o saldo e o histórico de transações da minha conta
+**Como** um usuário autenticado da plataforma BugBank  
+**Quero** visualizar o saldo e o histórico de transações da minha conta  
 **Para** que eu possa acompanhar minha movimentação financeira com clareza e transparência
 
 ## 🎯 Critérios de Aceitação
@@ -186,32 +186,32 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
     - Valores de entrada devem aparecer em verde
 
 ### Cenário 1: Visualização de saldo - Conta criada com saldo
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** acesso o extrato  
 **Então** vejo o saldo atual da conta
 
 ### Cenário 2: Visualização de saldo - Conta criada sem saldo
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** acesso o extrato  
 **Então** vejo o saldo atual da conta
 
 ### Cenário 3: Visualização de transações
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** realizo transações (abertura, envio, recebimento)  
 **Então** cada uma deve aparecer com data, tipo e comentário
 
 ### Cenário 4: Valor de saída
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** visualizo uma transferência enviada  
 **Então** o valor aparece em vermelho e com sinal negativo (-)
 
 ### Cenário 5: Valor de entrada
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** visualizo uma transferência recebida  
 **Então** o valor aparece em verde
 
 ### Cenário 6: Transação sem descrição
-**Dado** que estou autenticado
+**Dado** que estou autenticado  
 **Quando** não é informado descrição  
 **Então** vejo o símbolo “-” no lugar do comentário
 
