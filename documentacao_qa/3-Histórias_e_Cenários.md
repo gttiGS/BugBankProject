@@ -49,7 +49,7 @@ Este documento descreve as histórias de teste e os respectivos cenários de tes
 ### Cenário 6: Senha e confirmação diferentes
 **Dado** que estou na tela de cadastro  
 **Quando** preencho senha e confirmação diferentes  
-**Então** vejo uma mensagem de erro informando que as senhas devem ser iguais
+**Então** vejo a mensagem: "As senhas não são iguais."
 
 ### Cenário 7: Criar conta com saldo
 **Dado** que estou na tela de cadastro  
