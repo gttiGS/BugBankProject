@@ -10,15 +10,17 @@ Este repositório contém o projeto de testes automatizados da aplicação **Bug
 📁 src
 ├── 📁 test
 │   └── 📁 java
-│       ├── 📁 pages         # Page Objects (representação das telas)
-│       └── 📁 core          # Configurações e utilitários
-│       └── 📁 tests         # Casos de teste automatizados
-📁 documentacao_qa           # 📚 Documentação de QA do projeto
+│       └── 📁 com
+│       │   ├── 📁 pages         # Page Objects (representação das telas)
+│       │   └── 📁 core          # Configurações e utilitários
+│       │   └── 📁 tests         # Casos de teste automatizados
+│       └── 📁 resources         # Arquivos de configuração de ambiente
+📁 documentacao_qa               # 📚 Documentação de QA do projeto
 ├── 1-Requisitos_Funcionais.md
 ├── 2-Plano_de_Testes.md
 ├── 3-Histórias_e_Cenários.md
 📄 README.md                 # Este arquivo
-📄 pom.xml                  # Gerenciador de dependências Maven
+📄 pom.xml                   # Gerenciador de dependências Maven
 ```
 
 ## 🚀 Como Executar os Testes
