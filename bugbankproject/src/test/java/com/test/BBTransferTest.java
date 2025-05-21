@@ -79,7 +79,7 @@ public class BBTransferTest extends BaseTest {
         mainPage.clkTransfer();
     }
 
-    @DisplayName("CN0009 - Transferência para conta válida")
+    @DisplayName("CN0006 - Transferência para conta válida")
     @Test
     public void transfContaInvalida() throws Exception{
         criaContaDestino();
