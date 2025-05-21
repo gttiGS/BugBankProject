@@ -109,7 +109,6 @@ public class BBLoginTest extends BaseTest{
 		registerPage.clickCadastrar();		
 		
 		String successmsg = registerPage.getSuccessMessage();
-		System.out.println(successmsg);
 		assertTrue(successmsg.contains("foi criada com sucesso"));
 		
 		registerPage.closeModalMessage();

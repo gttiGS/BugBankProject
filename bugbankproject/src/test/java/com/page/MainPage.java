@@ -21,4 +21,9 @@ public class MainPage {
         WebElement btnlogout = getDriver().findElement(By.id("btnExit"));
         btnlogout.click();
     }
+
+    public void clkTransfer(){
+        WebElement btnTransfer = getDriver().findElement(By.id("btn-TRANSFERÊNCIA"));
+        btnTransfer.click();
+    }
 }

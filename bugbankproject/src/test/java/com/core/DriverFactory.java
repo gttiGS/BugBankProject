@@ -27,7 +27,6 @@ public class DriverFactory {
 	private static WebDriver createDriver() {
 		
 		if (browser.equals("chrome")) {
-		
 			System.setProperty("webdriver.chrome.driver", path + "chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();

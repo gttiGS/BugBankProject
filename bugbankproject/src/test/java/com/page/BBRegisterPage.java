@@ -17,24 +17,28 @@ public class BBRegisterPage {
 	
 	public BBRegisterPage sendEmail(String email) {
 		WebElement tfEmail = getDriver().findElement(By.xpath("//div[@class='card__register']//input[@name='email']"));		
+        tfEmail.clear();
 		tfEmail.sendKeys(email);
 		return this;
 	}
 	
 	public BBRegisterPage sendName(String name) {
 		WebElement tfName = getDriver().findElement(By.name("name"));
+        tfName.clear();
 		tfName.sendKeys(name);
 		return this;
 	}
 	
 	public BBRegisterPage sendPassword(String pass) {
 		WebElement tfPass = getDriver().findElement(By.xpath("//div[@class='card__register']//input[@name='password']"));
+        tfPass.clear();
 		tfPass.sendKeys(pass);
 		return this;
 	}
 	
 	public BBRegisterPage sendConfirmationPassword(String pass) {
 		WebElement tfConfirmationPass = getDriver().findElement(By.name("passwordConfirmation"));
+        tfConfirmationPass.clear();
 		tfConfirmationPass.sendKeys(pass);		
 		return this;
 	}
@@ -81,7 +85,9 @@ public class BBRegisterPage {
     }
 	
 	public void closeModalMessage() {
+        
 		WebElement btnClose = getDriver().findElement(By.id("btnCloseModal"));
+        wait.until(ExpectedConditions.elementToBeClickable(btnClose));
 		btnClose.click();		
 		
 	}
@@ -91,5 +97,12 @@ public class BBRegisterPage {
 		btnCadastrar.click();
 		return new BBLoginPage();
 	}
+
+    public String getNumeroContaCriada() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modalText")));
+        WebElement mensagemModal = getDriver().findElement(By.id("modalText"));
+        String texto = mensagemModal.getText();
+        return texto;
+    }
 
 }
