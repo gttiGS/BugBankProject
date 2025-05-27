@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
 
 import static com.core.DriverFactory.getDriver;
 
@@ -12,19 +13,28 @@ import java.time.Duration;
 
 public class BBTransferPage {
 
-
     private WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+    private WebElement campoNumeroConta;
+    private WebElement campoDigitoConta;
 
     public BBTransferPage preencherNumeroConta(String numeroConta) {
-        WebElement campoNumeroConta = getDriver().findElement(By.name("accountNumber"));
-        campoNumeroConta.sendKeys(numeroConta);
+        this.campoNumeroConta = getDriver().findElement(By.name("accountNumber"));
+        this.campoNumeroConta.sendKeys(numeroConta);
         return this;
     }
 
     public BBTransferPage preencherDigitoConta(String digitoConta) {
-        WebElement campoDigitoConta = getDriver().findElement(By.name("digit"));
-        campoDigitoConta.sendKeys(digitoConta);
+        this.campoDigitoConta = getDriver().findElement(By.name("digit"));
+        this.campoDigitoConta.sendKeys(digitoConta);
         return this;
+    }
+
+    public WebElement getCampoNumeroConta() {
+        return campoNumeroConta;
+    }
+
+    public WebElement getCampoDigitoConta() {
+        return campoDigitoConta;
     }
 
     public BBTransferPage sendValorTransf(String valortransf){
@@ -63,6 +73,16 @@ public class BBTransferPage {
 		WebElement btnClose = getDriver().findElement(By.id("btnCloseModal"));
 		btnClose.click();				
 	}
+
+    public boolean isInputWarningDisplayed() {
+    try {
+        WebElement warningElement = getDriver().findElement(By.className("input__warning"));
+        String warningText = warningElement.getText();
+        return !warningText.trim().isEmpty();
+    } catch (NoSuchElementException e) {
+        return false;
+    }
+    }
     
 
 }

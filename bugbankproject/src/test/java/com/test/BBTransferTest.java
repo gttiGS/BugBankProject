@@ -3,6 +3,7 @@ package com.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -79,9 +80,90 @@ public class BBTransferTest extends BaseTest {
         mainPage.clkTransfer();
     }
 
-    @DisplayName("CN0006 - Transferência para conta válida")
+    @DisplayName("CN0001 - Transferência para conta Inválida")
     @Test
-    public void transfContaInvalida() throws Exception{
+    public void transfContaInvalida() {
+        criaContaOrigem();
+        transferPage.preencherNumeroConta("000");
+        transferPage.preencherDigitoConta("1");
+        transferPage.sendValorTransf("100.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+
+        String successmsg = transferPage.getSuccessMessage();
+        assertEquals("Conta inválida ou inexistente", successmsg);
+
+    }
+
+    @Disabled("[BUG-0011] - Campos da conta aceitando letras ao invés de aceitar apenas números")
+    @DisplayName("CN0002 - Campos da conta com letras")
+    @Test
+    public void camposCcLetras() {
+        criaContaOrigem();
+        transferPage.preencherNumeroConta("aaa");
+        transferPage.preencherDigitoConta("a");
+        String valorNumeroConta = transferPage.getCampoNumeroConta().getAttribute("value");
+        String valorDigitoConta = transferPage.getCampoDigitoConta().getAttribute("value");
+        transferPage.sendValorTransf("100.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+
+       assertTrue(valorNumeroConta.matches("^\\d*$"));
+       assertTrue(valorDigitoConta.matches("^\\d*$"));
+
+    }
+
+    @Disabled("[BUG-0012] - Campo descrição não é um campo de preenchimento obrigatório")
+    @DisplayName("CN0003 - Campo descrição vazio")
+    @Test
+    public void campoDescVazio() {
+        criaContaDestino();
+        criaContaOrigem();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("100.00");
+        transferPage.btnTransf();
+
+        String successmsg = transferPage.getSuccessMessage();
+        assertFalse(successmsg.matches(successmsg));
+
+    }
+
+    @DisplayName("CN0004 - Valor igual ou menor que zero")
+    @Test
+    public void transfValorIgualOuMenorQueZero() {
+        criaContaDestino();
+        criaContaOrigem();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("-1.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+
+        String successmsg = transferPage.getSuccessMessage();
+        assertEquals("Valor da transferência não pode ser 0 ou negativo", successmsg);
+
+    }
+
+    @DisplayName("CN0005 - Saldo insuficiente")
+    @Test
+    public void transfSaldoInsuficiente() {
+        criaContaDestino();
+        criaContaOrigem();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("2000.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+
+        String successmsg = transferPage.getSuccessMessage();
+        assertEquals("Você não tem saldo suficiente para essa transação", successmsg);
+
+    }
+
+    @DisplayName("CN0006 - Transferência para conta Válida")
+    @Test
+    public void transfContaValida() {
         criaContaDestino();
         criaContaOrigem();
         transferPage.preencherNumeroConta(numeroContaDestino.trim());
