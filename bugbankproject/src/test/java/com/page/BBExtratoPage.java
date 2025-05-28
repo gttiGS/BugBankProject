@@ -21,21 +21,43 @@ public class BBExtratoPage {
     }
 
     public List<String> getTypeTransaction(){
-        List<WebElement> transacoes = getDriver().findElements(
-            By.cssSelector(".bank-statement__TypeTransaction-sc-7n8vh8-16.bhJVVL")
-        );
-
+        List<WebElement> transacoes = getDriver().findElements(By.id("textTypeTransaction"));
         List<String> comments = new ArrayList<>();
         for (WebElement transacao : transacoes) {
         comments.add(transacao.getText());
     }   
-
         return comments;
     }
 
-    public String getComTransaction(){
-        WebElement txtTransaction = getDriver().findElement(By.id("textDescription"));
-        return txtTransaction.getText();
+    public List<String> getComTransaction(){
+        List<WebElement> transacoes = getDriver().findElements(By.id("textDescription"));
+        List<String> desc = new ArrayList<>();
+        for (WebElement transacao : transacoes) {
+        desc.add(transacao.getText());
+    }   
+        return desc;
     }
+
+    public String getwithdrawalColorRed(){
+        WebElement valorNegativo = getDriver().findElement(By.cssSelector(".bank-statement__Value-sc-7n8vh8-17.gvXfbP"));
+        String redcolor = valorNegativo.getCssValue("color");
+        return redcolor;
+    }
+
+    public String getwithdrawalColorGreen(){
+        WebElement valorPositivo = getDriver().findElement(By.cssSelector(".bank-statement__Value-sc-7n8vh8-17.bbfCaL"));
+        String greencolor = valorPositivo.getCssValue("color");
+        return greencolor;
+    } 
+
+    public List<String> getValTransacaoNegativa(){
+        List<WebElement> transacoesNegativas = getDriver().findElements(By.id("textTransferValue"));
+        List<String> transfValues = new ArrayList<>();
+        for (WebElement transacao : transacoesNegativas) {
+        transfValues.add(transacao.getText());
+    }   
+        return transfValues;
+    }
+
 
 }

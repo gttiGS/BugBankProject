@@ -10,7 +10,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -139,7 +138,7 @@ public class BBExtratoTest extends BaseTest {
         String primeiraTransacao = typetransacoes.get(0);
         assertEquals("Abertura de conta", primeiraTransacao);
 
-        String comTransaction = extratoPage.getComTransaction();
+        List<String> comTransaction = extratoPage.getComTransaction();
         assertEquals("Saldo adicionado ao abrir conta", comTransaction);
 
     }
@@ -158,7 +157,7 @@ public class BBExtratoTest extends BaseTest {
         String primeiraTransacao = typetransacoes.get(0);
         assertEquals("Abertura de conta", primeiraTransacao);
 
-        String comTransaction = extratoPage.getComTransaction();
+        List<String> comTransaction = extratoPage.getComTransaction();
         assertEquals("Cliente optou por não ter saldo ao abrir conta", comTransaction);
 
     }
@@ -186,8 +185,8 @@ public class BBExtratoTest extends BaseTest {
         String segundaTransacao = typetransacoes.get(1);
         assertEquals("Transferência enviada", segundaTransacao);
 
-        String comTransaction = extratoPage.getComTransaction();
-        assertFalse(comTransaction.isBlank(), comTransaction);
+        List<String> comTransaction = extratoPage.getComTransaction();
+        assertFalse(comTransaction.get(1).isBlank());
 
 
     }
@@ -219,8 +218,83 @@ public class BBExtratoTest extends BaseTest {
         String segundaTransacao = typetransacoes.get(1);
         assertEquals("Transferência recebida", segundaTransacao);
 
-        String comTransaction = extratoPage.getComTransaction();
-        assertFalse(comTransaction.isBlank(), comTransaction);
+        List<String> comTransaction = extratoPage.getComTransaction();
+        assertFalse(comTransaction.get(1).isBlank());
+
+
+    }
+
+    @DisplayName("CN0004 - Valor de saída")
+    @Test
+    public void valorSaida(){
+        criaContaOps();
+        criaContaCSaldo();
+        mainPage.clkTransfer();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("100.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+        transferPage.closeModalMessage();
+        transferPage.btnBack();
+        mainPage.clkExtrato();
+
+        List<String> typetransacoes = extratoPage.getTypeTransaction();
+        typetransacoes.get(1);
+        assertEquals("rgba(255, 0, 0, 1)", extratoPage.getwithdrawalColorRed());
+        
+        List<String> valor = extratoPage.getValTransacaoNegativa();
+        assertTrue(valor.get(1).startsWith("-"));       
+
+    }
+
+    @DisplayName("CN0005 - Valor de entrada")
+    @Test
+    public void valorEntrada(){
+        criaContaOps();
+        criaContaCSaldo();
+        mainPage.clkTransfer();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("100.00");
+        transferPage.sendDescricao("Teste");
+        transferPage.btnTransf();
+        transferPage.closeModalMessage();
+        transferPage.btnBack();
+        mainPage.btnlogout();
+        loginPage.sendEmail("test01@test.com");
+		loginPage.sendPassword("X7v#9pLr!Q2z@Wm5");
+        loginPage.clickAcessar();
+        mainPage.clkExtrato();
+
+        List<String> typetransacoes = extratoPage.getTypeTransaction();
+        typetransacoes.get(1);
+        assertEquals("rgba(0, 128, 0, 1)", extratoPage.getwithdrawalColorGreen());
+           
+
+    }
+
+    @DisplayName("CN0006 - Transação sem descrição")
+    @Test
+    public void transacaoNoDesc(){
+        criaContaOps();
+        criaContaCSaldo();
+        mainPage.clkTransfer();
+        transferPage.preencherNumeroConta(numeroContaDestino.trim());
+        transferPage.preencherDigitoConta(digitoContaDestino.trim());
+        transferPage.sendValorTransf("100.00");
+        transferPage.btnTransf();
+        transferPage.closeModalMessage();
+        transferPage.btnBack();
+        mainPage.btnlogout();
+        loginPage.sendEmail("test01@test.com");
+		loginPage.sendPassword("X7v#9pLr!Q2z@Wm5");
+        loginPage.clickAcessar();
+        mainPage.clkExtrato();
+
+        List<String> desctransacoes = extratoPage.getComTransaction();
+        desctransacoes.get(1);
+        assertTrue(desctransacoes.contains("-"));
 
 
     }
