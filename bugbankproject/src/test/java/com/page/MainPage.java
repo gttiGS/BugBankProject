@@ -26,4 +26,9 @@ public class MainPage {
         WebElement btnTransfer = getDriver().findElement(By.id("btn-TRANSFERÊNCIA"));
         btnTransfer.click();
     }
+
+    public void clkExtrato(){
+        WebElement btnExtrato = getDriver().findElement(By.id("btn-EXTRATO"));
+        btnExtrato.click();
+    }
 }

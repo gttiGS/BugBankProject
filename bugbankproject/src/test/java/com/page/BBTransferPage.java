@@ -70,6 +70,8 @@ public class BBTransferPage {
 	}
 
     public void closeModalMessage() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("modalText")));
+        
 		WebElement btnClose = getDriver().findElement(By.id("btnCloseModal"));
 		btnClose.click();				
 	}
@@ -84,5 +86,9 @@ public class BBTransferPage {
     }
     }
     
+    public void btnBack(){
+        WebElement btnBack = getDriver().findElement(By.id("btnBack"));
+        btnBack.click();
+    }
 
 }

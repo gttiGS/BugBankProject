@@ -36,7 +36,7 @@ public class BBTransferTest extends BaseTest {
 
 	}
 
-        private void criaContaDestino(){
+    public void criaContaDestino(){
         loginPage.clickRegister();
         
         registerPage.sendEmail("test01@test.com");
@@ -62,7 +62,7 @@ public class BBTransferTest extends BaseTest {
         }
     }
 
-    private void criaContaOrigem(){
+    public void criaContaOrigem(){
         loginPage.clickRegister();
         
         registerPage.sendEmail("test02@test.com");
@@ -77,13 +77,13 @@ public class BBTransferTest extends BaseTest {
 		loginPage.sendPassword("X7v#9pLr!Q2z@Wm5");
 	    loginPage.clickAcessar();
 
-        mainPage.clkTransfer();
     }
 
     @DisplayName("CN0001 - Transferência para conta Inválida")
     @Test
     public void transfContaInvalida() {
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta("000");
         transferPage.preencherDigitoConta("1");
         transferPage.sendValorTransf("100.00");
@@ -100,6 +100,7 @@ public class BBTransferTest extends BaseTest {
     @Test
     public void camposCcLetras() {
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta("aaa");
         transferPage.preencherDigitoConta("a");
         String valorNumeroConta = transferPage.getCampoNumeroConta().getAttribute("value");
@@ -119,6 +120,7 @@ public class BBTransferTest extends BaseTest {
     public void campoDescVazio() {
         criaContaDestino();
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta(numeroContaDestino.trim());
         transferPage.preencherDigitoConta(digitoContaDestino.trim());
         transferPage.sendValorTransf("100.00");
@@ -134,6 +136,7 @@ public class BBTransferTest extends BaseTest {
     public void transfValorIgualOuMenorQueZero() {
         criaContaDestino();
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta(numeroContaDestino.trim());
         transferPage.preencherDigitoConta(digitoContaDestino.trim());
         transferPage.sendValorTransf("-1.00");
@@ -150,6 +153,7 @@ public class BBTransferTest extends BaseTest {
     public void transfSaldoInsuficiente() {
         criaContaDestino();
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta(numeroContaDestino.trim());
         transferPage.preencherDigitoConta(digitoContaDestino.trim());
         transferPage.sendValorTransf("2000.00");
@@ -166,6 +170,7 @@ public class BBTransferTest extends BaseTest {
     public void transfContaValida() {
         criaContaDestino();
         criaContaOrigem();
+        mainPage.clkTransfer();
         transferPage.preencherNumeroConta(numeroContaDestino.trim());
         transferPage.preencherDigitoConta(digitoContaDestino.trim());
         transferPage.sendValorTransf("100.00");
